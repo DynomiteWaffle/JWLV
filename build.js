@@ -1,23 +1,36 @@
 let params = new URLSearchParams(document.location.search);
 let url = params.get("List")
-
+const list = document.getElementById("List")
 if (!url == '') {
     // remove help section - not needed if user used
     const helpElement = document.getElementById("Help")
     helpElement.remove()
     // TODO gen doc
-    // get json
     // TODO fix cors errors
     // temp use litterbox - returns proper
-    data = getData(url)
-    // TODO ACctualt GET THYE DANG DATA
-    console.log(data)
-    console.log(Object.values(data))
-    // loop trough items + make them
+
+    // get json
+    getData(url).then((data) => {
+        const reuse = data.ReusedNotes
+        console.log(reuse)
+        // loop trough items + make them
+        data.Items.forEach(element => {
+            makeItem(element, reuse)
+        });
+    })
+
 }
 
-function makeItem() {
+function makeItem(item, ReusedNotes) {
+    // console.log(item)
 
+    let element = document.createElement("div")
+    element.className = "List"
+    element.appendChild(document.createTextNode(item.Name))
+
+
+
+    list.appendChild(element)
 }
 
 async function getData(url) {
