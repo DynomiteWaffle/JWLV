@@ -1,14 +1,37 @@
-.ListItem {
-    padding: 0.5em;
-}
+ @media only screen and (orientation: portrait) {
+     body {
+         font-size: 4vw;
+     }
+ }
 
-.ItemTitle {
-    font-weight: bold;
-    font-size: larger;
-    cursor: pointer;
-    padding: 0.5em;
-}
+ #List {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin: auto;
+     text-align: center;
+ }
 
-.Details {
-    margin: 0.25em;
-}
+
+ .ListItem {
+     padding: 1em;
+ }
+
+ .ItemTitle {
+     flex: auto;
+     font-weight: bold;
+     font-size: larger;
+     cursor: pointer;
+     padding: 0.5em;
+ }
+
+ .Details {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin: 0.25em;
+ }
+
+ [hidden] {
+     display: none;
+ }
