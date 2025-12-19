@@ -22,11 +22,29 @@ if (!url == '') {
 }
 
 function makeItem(item, ReusedNotes) {
-    // console.log(item)
-
     let element = document.createElement("div")
-    element.className = "List"
-    element.appendChild(document.createTextNode(item.Name))
+    element.className = "ListItem"
+    if (item.Priority == null) {
+        element.style.order = Number.MAX_SAFE_INTEGER
+    } else {
+        element.style.order = item.Priority
+    }
+    let name = document.createElement("h3")
+    name.innerHTML = item.Name
+    name.onclick = function (event) {
+        if (event.target.nextElementSibling.hidden) {
+            event.target.nextElementSibling.hidden = false
+        } else {
+            event.target.nextElementSibling.hidden = true
+        }
+    }
+
+    element.appendChild(name)
+    let details = document.createElement("div")
+    details.hidden = true
+
+    details.appendChild(document.createTextNode("Here be dragons"))
+    element.appendChild(details)
 
 
 
