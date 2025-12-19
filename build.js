@@ -29,7 +29,7 @@ function makeItem(item, ReusedNotes) {
     } else {
         element.style.order = item.Priority
     }
-    let name = document.createElement("h3")
+    let name = document.createElement("Text")
     name.innerHTML = item.Name
     name.onclick = function (event) {
         if (event.target.nextElementSibling.hidden) {
