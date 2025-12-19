@@ -29,8 +29,9 @@ function makeItem(item, ReusedNotes) {
     } else {
         element.style.order = item.Priority
     }
-    let name = document.createElement("h3")
+    let name = document.createElement("Text")
     name.innerHTML = item.Name
+    name.className = "ItemTitle"
     name.onclick = function (event) {
         if (event.target.nextElementSibling.hidden) {
             event.target.nextElementSibling.hidden = false
@@ -41,9 +42,12 @@ function makeItem(item, ReusedNotes) {
 
     element.appendChild(name)
     let details = document.createElement("div")
+    details.className = "Details"
     details.hidden = true
 
+
     details.appendChild(document.createTextNode("Here be dragons"))
+    element.appendChild(document.createTextNode(" ")) // make spacer
     element.appendChild(details)
 
 
