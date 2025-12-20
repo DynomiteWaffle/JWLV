@@ -22,32 +22,24 @@ if (!url == '') {
 }
 
 function makeItem(item, ReusedNotes) {
-    let element = document.createElement("div")
+    let element = document.createElement("details")
     element.className = "ListItem"
     if (item.Priority == null) {
         element.style.order = Number.MAX_SAFE_INTEGER
     } else {
         element.style.order = item.Priority
     }
-    let name = document.createElement("Text")
+
+    let name = document.createElement("summary")
     name.innerHTML = item.Name
     name.className = "ItemTitle"
-    name.onclick = function (event) {
-        if (event.target.nextElementSibling.hidden) {
-            event.target.nextElementSibling.hidden = false
-        } else {
-            event.target.nextElementSibling.hidden = true
-        }
-    }
 
     element.appendChild(name)
     let details = document.createElement("div")
     details.className = "Details"
-    details.hidden = true
 
 
     details.appendChild(document.createTextNode("Here be dragons"))
-    element.appendChild(document.createTextNode(" ")) // make spacer
     element.appendChild(details)
 
 
